@@ -1,22 +1,20 @@
 Getting started
-===============
+=
 
-Run the application in production mode
---------------------------------------
-
-1. Fill the `production` section in the `database.yml`file.
-2. Create the database: `RAILS_ENV=production bin/rake db:create`
-3. Create the tables: `RAILS_ENV=production bin/rake db:migrate`
-4. Run the server: `RAILS_ENV=production bin/rails s`
+Prerequisites
+-
+1. Get and install **Docker** https://www.docker.com/get-docker on your machine
+2. Download` pia-docker.zip` and unzip it.
 
 Run the full app through Docker-Compose for production
-------------------------------------------------------
+-
 
 1. Fill the environment variables in `docker-compose.yml`
-2. Run the containers `docker-compose up`
-3. Access the website with `localhost:8080` or `yourdomain.net:8080`
+2. Open a shell in the `pia-docker` directory
+3. Run the containers by typing `docker-compose up` into the shell
+4. Access the website with `localhost:8080` or `yourdomain.net:8080`
 
-Run the test
-------------
-
-`bin/rake`
+Addtional information
+-
+The installation under Windows 10 is described in the Wiki:
+https://github.com/kosmas58/pia-docker/wiki/Installation-on-Windows-10
