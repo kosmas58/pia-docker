@@ -1,6 +1,6 @@
 Getting started
 =
-Here is `Docker-Compose` configuration for production purpose. Everything is automated from creating containers to setting up the database. A simple `docker-compose up` does everything and gives a running website : front-end, back-end and database.
+Here is **Docker-Compose** configuration for production purpose. Everything is automated from creating containers to setting up the database. A simple `docker-compose up` does everything and gives a running website : front-end, back-end and database.
 However, you still have to add the back-end URL on the front-end interface as we don't see a way to automate it.
 We include the Dockerfiles so you can build the images yourself. The `docker-compose.yml` is here for demonstration purpose. You may want to use Docker with Kubernetes for example for production.
 
