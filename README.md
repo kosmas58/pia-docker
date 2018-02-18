@@ -10,7 +10,7 @@ Run the full app through Docker-Compose for production
 -
 
 1. Fill the environment variables in `docker-compose.yml`
-2. Open a shell in the `pia-docker` directory
+2. Open a shell and switch to the `pia-docker` directory
 3. Run the containers by typing `docker-compose up` into the shell
 4. Access the website with `localhost:8080` or `yourdomain.net:8080`
 
