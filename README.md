@@ -17,4 +17,4 @@ Run the full app through Docker-Compose for production
 Addtional information
 -
 The installation under Windows 10 is described in the Wiki:
-https://github.com/kosmas58/pia-docker/wiki/Installation-on-Windows-10
+https://github.com/kosmas58/pia-docker/wiki/Installation-under-Windows-10
