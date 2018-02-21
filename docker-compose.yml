@@ -6,8 +6,8 @@ services:
     environment:
       DATABASE_HOST: 'database'
       DATABASE_USERNAME: 'postgres'
-      DATABASE_PASSWORD: 'somepassword'
-      SECRET_KEY_BASE: 'somesecret'
+      DATABASE_PASSWORD: 'pia-prod'
+      SECRET_KEY_BASE: 'a3155b0aae4087e828b2214ac06a905a61ed6ca2825795b9278a541fe431d6198acf8f561b88e0cf2191e572a9f3f387ed00c4e2d45e52cd1b41e73fee58f758'
     links:
       - database
     depends_on:
@@ -25,4 +25,4 @@ services:
     image: postgres:10.1
     restart: always
     environment:
-      POSTGRES_PASSWORD: 'somepassword'
+      POSTGRES_PASSWORD: 'pia-test'
