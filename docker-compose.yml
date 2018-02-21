@@ -25,4 +25,4 @@ services:
     image: postgres:10.1
     restart: always
     environment:
-      POSTGRES_PASSWORD: 'pia-test'
+      POSTGRES_PASSWORD: 'pia-prod'
