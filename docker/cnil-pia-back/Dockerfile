@@ -9,7 +9,7 @@ RUN apt-get update \
 
 # We should checkout a tag once there is a new release after 1.1
 # RUN git clone https://github.com/LINCnil/pia-back.git /var/www/
-RUN git clone -b master https://github.com/LINCnil/pia-back.git --depth 1 /var/www/
+RUN git clone -b master https://github.com/LINCnil/pia-back.git /var/www/
 
 COPY database.yml /var/www/config/database.yml
 COPY application.yml /var/www/config/application.yml

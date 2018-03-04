@@ -25,7 +25,7 @@ USER www-data
 
 # We should checkout a tag once there is a new release after 1.5.0
 #RUN git clone https://github.com/LINCnil/pia.git /var/www/pia
-RUN git clone -b master https://github.com/LINCnil/pia.git --depth 1 /var/www/pia
+RUN git clone -b master https://github.com/LINCnil/pia.git /var/www/pia
 
 WORKDIR /var/www/pia
 
