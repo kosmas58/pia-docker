@@ -23,8 +23,8 @@ RUN mkdir -p /var/www && chown www-data. /var/www/
 
 USER www-data
 
-ENV PIA_VERSION 1.6.0
-RUN git clone --branch $PIA_VERSION https://github.com/LINCnil/pia.git --depth 1 /var/www/pia
+ENV PIA_VERSION 1.6.2
+RUN git clone --branch $PIA_VERSION https://github.com/kosmas58/pia.git --depth 1 /var/www/pia
 
 WORKDIR /var/www/pia
 
