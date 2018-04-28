@@ -7,8 +7,7 @@ RUN apt-get update \
     postgresql-client \
  && apt-get clean
 
-ENV PIA_VERSION master
-RUN git clone --branch $PIA_VERSION https://github.com/LINCnil/pia-back.git --depth 1 /var/www/
+RUN git clone --branch master https://github.com/LINCnil/pia-back.git --depth 1 /var/www/
 
 COPY database.yml /var/www/config/database.yml
 COPY application.yml /var/www/config/application.yml
