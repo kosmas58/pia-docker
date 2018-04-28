@@ -1,4 +1,4 @@
-FROM ruby:2.5-stretch
+FROM ruby:2.5.0-stretch
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update \
