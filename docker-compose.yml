@@ -22,7 +22,7 @@ services:
       - 0.0.0.0:8080:80
 
   database:
-    image: postgres:10.1
+    image: postgres:10.3
     restart: always
     environment:
       POSTGRES_PASSWORD: 'somepassword'
