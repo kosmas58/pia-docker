@@ -1,6 +1,7 @@
 version: '3'
 services:
   cnil-pia-back:
+    container_name: cnil-pia-back
     build: docker/cnil-pia-back
     restart: always
     environment:
@@ -16,12 +17,14 @@ services:
       - 3000:3000
 
   cnil-pia-front:
+    container_name: cnil-pia-front
     build: docker/cnil-pia-front
     restart: always
     ports:
       - 0.0.0.0:8080:80
 
   database:
+    container_name: cnil-pia-db
     image: postgres:10.3
     restart: always
     environment:
