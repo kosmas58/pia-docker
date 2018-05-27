@@ -10,7 +10,7 @@ RUN apt-get update \
     sudo \
  && apt-get clean
 
-ENV NODEJS_VERSION 8.11.1
+ENV NODEJS_VERSION 8.11.2
 RUN wget --no-verbose https://nodejs.org/dist/v${NODEJS_VERSION}/node-v${NODEJS_VERSION}-linux-x64.tar.xz -O /tmp/node-v${NODEJS_VERSION}-linux-x64.tar.xz \
  && tar -xf /tmp/node-v${NODEJS_VERSION}-linux-x64.tar.xz -C /opt \
  && ln -s /opt/node-v${NODEJS_VERSION}-linux-x64/bin/node /usr/bin/node \
