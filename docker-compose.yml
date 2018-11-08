@@ -25,7 +25,7 @@ services:
 
   database:
     container_name: kosmas58-pia-db
-    image: postgres:10.3
+    image: postgres:10.5
     restart: always
     environment:
       POSTGRES_PASSWORD: 'somepassword'
