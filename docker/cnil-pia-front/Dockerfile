@@ -8,6 +8,9 @@ RUN apt-get update \
     wget \
     xz-utils \
     sudo \
+    curl \
+    gnupg \
+    apt-transport-https \
  && apt-get clean
 
 ENV NODEJS_VERSION 10.13.0
