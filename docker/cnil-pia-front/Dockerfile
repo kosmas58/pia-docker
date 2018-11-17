@@ -17,6 +17,14 @@ RUN wget --no-verbose https://nodejs.org/dist/v${NODEJS_VERSION}/node-v${NODEJS_
  && ln -s /opt/node-v${NODEJS_VERSION}-linux-x64/bin/npm /usr/bin/npm \
  && rm /tmp/node-v${NODEJS_VERSION}-linux-x64.tar.xz
 
+# Add Yarn repository
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+# Update
+RUN apt-get update -y
+# Install Yarn
+RUN apt-get install yarn -y
+
 COPY ./conf/cnil_pia.conf /etc/nginx/conf.d/default.conf
 
 RUN mkdir -p /var/www && chown www-data. /var/www/
