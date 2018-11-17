@@ -1,3 +1,4 @@
+FROM nginx:1.15
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update \
