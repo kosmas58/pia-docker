@@ -1,4 +1,3 @@
-FROM nginx:1.15
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update \
@@ -8,6 +7,9 @@ RUN apt-get update \
     wget \
     xz-utils \
     sudo \
+    curl \
+    gnupg \
+    apt-transport-https \
  && apt-get clean
 
 ENV NODEJS_VERSION 10.13.0
