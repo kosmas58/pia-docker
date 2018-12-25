@@ -34,7 +34,7 @@ RUN mkdir -p /var/www && chown www-data. /var/www/
 
 USER www-data
 
-ENV PIA_VERSION 1.6.5
+ENV PIA_VERSION 2.0.0.4
 RUN git clone --branch master https://github.com/kosmas58/pia.git --depth 1 /var/www/pia
 
 WORKDIR /var/www/pia
