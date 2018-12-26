@@ -13,7 +13,7 @@ RUN apt-get update \
     apt-transport-https \
  && apt-get clean
 
-ENV NODEJS_VERSION 10.13.0
+ENV NODEJS_VERSION 10.14.2
 RUN wget --no-verbose https://nodejs.org/dist/v${NODEJS_VERSION}/node-v${NODEJS_VERSION}-linux-x64.tar.xz -O /tmp/node-v${NODEJS_VERSION}-linux-x64.tar.xz \
  && tar -xf /tmp/node-v${NODEJS_VERSION}-linux-x64.tar.xz -C /opt \
  && ln -s /opt/node-v${NODEJS_VERSION}-linux-x64/bin/node /usr/bin/node \
