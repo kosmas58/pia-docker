@@ -22,5 +22,6 @@ RUN chmod +x /entrypoint
 ENTRYPOINT ["/entrypoint"]
 
 ENV RAILS_ENV production
+ENV RAILS_SERVE_STATIC_FILES true
 
 CMD ["bin/rails", "server"]
