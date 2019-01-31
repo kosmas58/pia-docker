@@ -1,0 +1,42 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: production-dpia
+  annotations:
+    kubernetes.io/ingress.class: haproxy
+    ingress.kubernetes.io/auth-type: basic
+    ingress.kubernetes.io/auth-realm: DPIA-Auth
+    ingress.kubernetes.io/auth-secret: dpia-auth
+spec:
+  rules:
+  - host: dpia.example.com.be
+    http:
+      paths:
+      - backend:
+          serviceName: cnil-dpia-front
+          servicePort: 80
+        path: /
+  tls:
+  - hosts:
+    - dpia.example.com.be
+    secretName: dpia.example.com.be
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: production-dpia-backend
+  annotations:
+    kubernetes.io/ingress.class: haproxy
+spec:
+  rules:
+  - host: dpia-backend.example.com.be
+    http:
+      paths:
+      - backend:
+          serviceName: cnil-dpia-back
+          servicePort: 3000
+        path: /
+  tls:
+  - hosts:
+    - dpia-backend.example.com.be
+    secretName: dpia-backend.example.com.be
