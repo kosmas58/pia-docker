@@ -3,7 +3,7 @@ FROM ruby:2.5.1-stretch
 ENV DEBIAN_FRONTEND noninteractive
 ENV PIA_VERSION 2.0.0
 ENV RAILS_ENV production
-ENV RAILS_SERVE_STATIC_FILES true
+ENV RAILS_SERVE_STATIC_FILES=true
 
 RUN apt-get update \
  && apt-get install --no-install-recommends -y \
