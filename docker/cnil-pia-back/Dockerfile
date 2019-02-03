@@ -1,5 +1,8 @@
 FROM ruby:2.5.3-stretch
+
 ENV DEBIAN_FRONTEND noninteractive
+ENV RAILS_ENV production
+ENV RAILS_SERVE_STATIC_FILES=true
 
 RUN apt-get update \
  && apt-get install --no-install-recommends -y \
@@ -20,7 +23,5 @@ RUN bundle install
 COPY entrypoint /entrypoint
 RUN chmod +x /entrypoint
 ENTRYPOINT ["/entrypoint"]
-
-ENV RAILS_ENV production
 
 CMD ["bin/rails", "server"]
