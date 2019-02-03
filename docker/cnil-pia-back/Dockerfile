@@ -18,6 +18,7 @@ COPY application.yml /var/www/config/application.yml
 
 WORKDIR /var/www/
 
+RUN gem install bundler
 RUN bundle install
 
 COPY entrypoint /entrypoint
