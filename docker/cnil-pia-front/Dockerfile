@@ -13,7 +13,7 @@ RUN apt-get update \
     apt-transport-https \
  && apt-get clean
 
-ENV NODEJS_VERSION 10.15.0
+ENV NODEJS_VERSION 10.15.1
 RUN wget --no-verbose https://nodejs.org/dist/v${NODEJS_VERSION}/node-v${NODEJS_VERSION}-linux-x64.tar.xz -O /tmp/node-v${NODEJS_VERSION}-linux-x64.tar.xz \
  && tar -xf /tmp/node-v${NODEJS_VERSION}-linux-x64.tar.xz -C /opt \
  && ln -s /opt/node-v${NODEJS_VERSION}-linux-x64/bin/node /usr/bin/node \
@@ -35,7 +35,7 @@ RUN mkdir -p /var/www && chown www-data. /var/www/
 USER www-data
 
 ENV PIA_VERSION 2.0.0
-RUN git clone --branch $PIA_VERSION https://github.com/LINCnil/pia.git --depth 1 /var/www/pia
+RUN git clone --branch community https://github.com/LINCnil/pia.git --depth 1 /var/www/pia
 
 WORKDIR /var/www/pia
 
