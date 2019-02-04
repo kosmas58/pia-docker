@@ -1,11 +1,9 @@
 FROM nginx:1.15
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV NODEJS_VERSION 10.13.0
+ENV NODEJS_VERSION 10.15.1
 ENV PIA_VERSION 2.0.0
 ENV SUDO_FORCE_REMOVE yes
-
-
 
 RUN apt-get update \
  && apt-get install --no-install-recommends -y \

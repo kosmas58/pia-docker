@@ -1,4 +1,5 @@
 FROM ruby:2.5.1-stretch
+
 ENV DEBIAN_FRONTEND noninteractive
 ENV PIA_VERSION 2.0.0
 ENV RAILS_ENV production
@@ -18,6 +19,7 @@ COPY application.yml /var/www/config/application.yml
 
 WORKDIR /var/www/
 
+RUN gem install bundler
 RUN bundle install
 
 COPY entrypoint /entrypoint
