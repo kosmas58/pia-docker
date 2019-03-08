@@ -40,7 +40,7 @@ RUN mkdir -p /var/www && chown www-data. /var/www/
 
 USER www-data
 
-RUN git clone --branch master https://github.com/kosmas58/pia.git --depth 1 /var/www/pia
+RUN git clone --branch community https://github.com/kosmas58/pia.git --depth 1 /var/www/pia
 
 WORKDIR /var/www/pia
 
