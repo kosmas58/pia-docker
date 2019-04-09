@@ -1,4 +1,4 @@
-FROM ruby:2.5.3-stretch
+FROM ruby:2.6.2-stretch
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV RAILS_ENV production
