@@ -1,7 +1,7 @@
-FROM nginx:1.15
+FROM nginx:1.16
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV NODEJS_VERSION 10.15.3
+ENV NODEJS_VERSION 10.16.0
 ENV PIA_VERSION 2.1.0
 ENV SUDO_FORCE_REMOVE yes
 
@@ -48,7 +48,7 @@ WORKDIR /var/www/pia
 RUN yarn install \
  && cp src/environments/environment.prod.ts.example src/environments/environment.prod.ts \
  && sed -i -e "s/version: '2.0.0'/version: '$PIA_VERSION'/g" src/environments/environment.prod.ts \
- && /var/www/pia/node_modules/@angular/cli/bin/ng build --prod --build-optimizer --sourcemaps
+ && /var/www/pia/node_modules/@angular/cli/bin/ng build --prod --build-optimizer
 
 USER root
 #Cleaning Packages
