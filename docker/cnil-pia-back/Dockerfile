@@ -1,7 +1,6 @@
 FROM ruby:2.5.5-stretch
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV PIA_VERSION 2.1.0
 ENV RAILS_ENV production
 ENV RAILS_SERVE_STATIC_FILES=true
 

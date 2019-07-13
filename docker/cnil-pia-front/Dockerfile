@@ -1,4 +1,4 @@
-FROM nginx:1.15
+FROM nginx:1.16
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV NODEJS_VERSION 10.16.0
