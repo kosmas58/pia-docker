@@ -30,3 +30,59 @@ Connect the frontend (or client app) to the backend
 - Fill the field in "Tools" > "Settings"
 
 ![PIA Settings](docker/pia-settings.png)
+
+SSL Setup
+-
+
+To setup PIA with SSL/TLS encryption (i.e. access it with https:// later), you first need to obtain a valid certificate and key from your certificate authority of choice. As an example, we will assume a LetsEncrypt certificate obtained by certbot is available at the host machine (the machine docker runs on).
+
+1. Mount the directory containing the certificate and private key in cnil-pia-back **and** cnil-pia-front
+
+For the letsencrypt example this should be a modification in the docker-compose file like:
+
+```
+  volumes:
+  - "/etc/letsencrypt:/etc/letsencrypt"
+```
+
+(Yes, the whole /etc/letsencrypt directory is necessary, as certbot links the most recent certificate using soft links. The real certificate and private key reside under `archive` with changing filenames.)
+
+2. Change the target port of cnil-pia-front to 443 in the docker-compose.yml
+
+In the backend, we need to force ssl for ruby-on-rails (i.e. the puma application server).
+
+3. Uncomment `config.force_ssl = true` in the `environment/production.rb` config file.
+4. Change the command executed by docker to start the container pointing to SSL certificate and key
+
+You could do this by adding a simple sed command and by chaning the CMD line in the Dockerfile of the backend:
+```
+...
+# Force SSL in production
+RUN sed -i 's/# config.force_ssl = true/config.force_ssl = true/' config/environments/production.rb
+
+COPY entrypoint /entrypoint
+RUN chmod +x /entrypoint
+ENTRYPOINT ["/entrypoint"]
+
+CMD ["bundle", "exec", "puma", "-b", "ssl://0.0.0.0:3000?key=/etc/letsencrypt/live/www.example.com/privkey.pem&cert=/etc/letsencrypt/live/www.example.com/fullchain.pem"]
+```
+
+5. Modify the nginx configuration of cnil-pia-front to listen to ssl
+
+Instead of listening to port 80, the standard SSL port 443 has to be setup. You can change this in `docker/cnil-pia-front/conf/cnil_pia.conf`:
+
+```
+server {
+    listen 443 ssl;
+    server_name _;
+    root /var/ww/pia/dist/;
+
+    ssl_certificate /etc/letsencrypt/live/www.example.com/fullchian.pem;
+    ssl_certificate_key /etc/letsencrypt/live/www.example.com/privkey.pem;
+
+    location / {
+    }
+}
+```
+
+This should do the trick, use `docker-compose up -d` as usual to start HTTPS-enabled pia!
