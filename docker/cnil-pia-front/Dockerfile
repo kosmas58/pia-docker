@@ -2,7 +2,7 @@ FROM nginx:1.17.6
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV NODEJS_VERSION 12.14.0
-ENV PIA_VERSION v2.3.0-beta5
+ENV PIA_VERSION v2.3.0-beta6
 ENV SUDO_FORCE_REMOVE yes
 
 RUN apt-get update \
