@@ -10,7 +10,7 @@ RUN apt-get update \
     postgresql-client \
  && apt-get clean
 
-RUN git clone --branch community https://github.com/kosmas58/pia-back.git --depth 1 /var/www/
+RUN git clone --branch pia-2.3 https://github.com/kosmas58/pia-back.git --depth 1 /var/www/
 
 COPY database.yml /var/www/config/database.yml
 COPY application.yml /var/www/config/application.yml
