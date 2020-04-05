@@ -3,6 +3,7 @@ FROM nginx:1.17
 ENV DEBIAN_FRONTEND noninteractive
 ENV NODEJS_VERSION 12.16.1
 ENV PIA_VERSION v2.3.0-beta14
+ENV BRANCH v2.3.0-beta14
 ENV SUDO_FORCE_REMOVE yes
 
 RUN apt-get update \
@@ -42,7 +43,7 @@ RUN mkdir -p /var/www && chown www-data. /var/www/
 USER www-data
 
 #RUN git clone --branch community https://github.com/kosmas58/pia.git --depth 1 /var/www/pia
-RUN git clone --branch $PIA_VERSION https://github.com/kosmas58/pia.git --depth 1 /var/www/pia
+RUN git clone --branch $BRANCH https://github.com/kosmas58/pia.git --depth 1 /var/www/pia
 
 WORKDIR /var/www/pia
 
