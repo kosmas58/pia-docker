@@ -1,4 +1,4 @@
-FROM nginx:1.17.9
+FROM nginx:1.17
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV NODEJS_VERSION 12.16.1
@@ -42,11 +42,10 @@ RUN mkdir -p /var/www && chown www-data. /var/www/
 USER www-data
 
 #RUN git clone --branch community https://github.com/kosmas58/pia.git --depth 1 /var/www/pia
-RUN git clone --branch pia-2.3-machine-translations https://github.com/kosmas58/pia.git --depth 1 /var/www/pia
+RUN git clone --branch $PIA_VERSION https://github.com/kosmas58/pia.git --depth 1 /var/www/pia
 
 WORKDIR /var/www/pia
 
-# Fix for release 1.6.0 : https://github.com/LINCnil/pia/issues/127#issuecomment-369620227
 RUN yarn install \
  && cp src/environments/environment.prod.ts.example src/environments/environment.prod.ts \
  && sed -i -e "s/version: '2.0.0'/version: '$PIA_VERSION'/g" src/environments/environment.prod.ts \
