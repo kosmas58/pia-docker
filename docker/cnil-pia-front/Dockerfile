@@ -3,7 +3,7 @@ FROM nginx:1.17
 ENV DEBIAN_FRONTEND noninteractive
 ENV NODEJS_VERSION 12.16.2
 ENV PIA_VERSION v2.3.0-beta15
-ENV BRANCH v2.3.0-beta15
+ENV BRANCH community-7-machine-translations
 ENV SUDO_FORCE_REMOVE yes
 
 RUN apt-get update \
