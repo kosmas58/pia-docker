@@ -1,4 +1,4 @@
-FROM nginx:1.17
+FROM nginx:1.19
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV NODEJS_VERSION 12.18
