@@ -1,8 +1,8 @@
-FROM nginx:1.19
+FROM nginx:1.19.5
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV NODEJS_VERSION 14.15.0
-ENV PIA_VERSION v2.4.0-beta01
+ENV NODEJS_VERSION 14.15.1
+ENV PIA_VERSION v2.4.0-beta04
 ENV BRANCH pia-2.4-5-docker
 ENV SUDO_FORCE_REMOVE yes
 
@@ -34,7 +34,7 @@ RUN wget --no-verbose https://nodejs.org/dist/v${NODEJS_VERSION}/node-v${NODEJS_
 
 RUN  /usr/bin/npm install npm@latest -g \
  && /usr/bin/npm install --unsafe-perm -g node-sass \
- && /usr/bin/npm install -g @angular/cli
+ && /usr/bin/npm install -g @angular/cli@9
 
 COPY ./conf/cnil_pia.conf /etc/nginx/conf.d/default.conf
 
