@@ -19,6 +19,9 @@ COPY application.yml /var/www/config/application.yml
 WORKDIR /var/www/
 
 RUN gem install bundler
+#install shared-mime info and update mimemagic 
+RUN apt install shared-mime-info
+RUN bundle update mimemagic 
 RUN bundle install
 
 COPY entrypoint /entrypoint
