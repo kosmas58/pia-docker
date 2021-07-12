@@ -1,18 +1,20 @@
 FROM ruby:2.5.5-stretch
+ARG PIA_VERSION=2.2.0
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV PIA_VERSION 2.2.0
 ENV RAILS_ENV production
 ENV RAILS_SERVE_STATIC_FILES=true
 
 RUN apt-get update \
  && apt-get install --no-install-recommends -y \
-    git \
     postgresql-client \
     shared-mime-info \
  && apt-get clean
 
-RUN git clone --branch $PIA_VERSION https://github.com/LINCnil/pia-back.git --depth 1 /var/www/
+RUN wget https://github.com/LINCnil/pia-back/archive/refs/tags/$PIA_VERSION.zip \
+ && unzip $PIA_VERSION.zip \
+ && rm $PIA_VERSION.zip \
+ && mv pia-back-$PIA_VERSION /var/www
 
 COPY database.yml /var/www/config/database.yml
 COPY application.yml /var/www/config/application.yml
