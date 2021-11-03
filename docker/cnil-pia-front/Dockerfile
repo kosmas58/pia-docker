@@ -1,8 +1,8 @@
 FROM nginx:1.16
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV NODEJS_VERSION 10.16.0
-ENV PIA_VERSION 2.2.0
+ENV NODEJS_VERSION 14.17.4
+ENV PIA_VERSION v3.0.2
 ENV SUDO_FORCE_REMOVE yes
 
 RUN apt-get update \
@@ -40,14 +40,11 @@ RUN mkdir -p /var/www && chown www-data. /var/www/
 
 USER www-data
 
-RUN git clone --branch $PIA_VERSION https://github.com/LINCnil/pia.git --depth 1 /var/www/pia
+RUN git clone --branch $PIA_VERSION --single-branch https://github.com/LINCnil/pia.git --depth 1 /var/www/pia
 
 WORKDIR /var/www/pia
 
-# Fix for release 1.6.0 : https://github.com/LINCnil/pia/issues/127#issuecomment-369620227
-RUN yarn install \
- && cp src/environments/environment.prod.ts.example src/environments/environment.prod.ts \
- && sed -i -e "s/version: '2.0.0'/version: '$PIA_VERSION'/g" src/environments/environment.prod.ts \
+RUN yarn install --ignore-engines \
  && /var/www/pia/node_modules/@angular/cli/bin/ng build --prod --build-optimizer
 
 USER root

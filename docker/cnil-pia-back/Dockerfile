@@ -1,7 +1,7 @@
-FROM ruby:2.5.5-stretch
+FROM ruby:2.6.8-stretch
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV PIA_VERSION 2.2.0
+ENV PIA_VERSION v3.0.0
 ENV RAILS_ENV production
 ENV RAILS_SERVE_STATIC_FILES=true
 
