@@ -1,4 +1,4 @@
-FROM ruby:2.6.8-stretch
+FROM ruby:2.7.4
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV PIA_VERSION v3.0.0
